@@ -5,20 +5,18 @@ import { authorizeUser } from '../helpers/authorization-helper';
 const router = express.Router();
 const API_URL = 'https://the-one-api.dev/v2/character';
 
-router.get('/', authorizeUser, async (req: Request, res: Response) => {
-  let params = req.query; // TODD: [YD] Use partials
-
+router.get('/character', authorizeUser, async (req: Request, res: Response) => {
   let result = await axios.get(API_URL, {
     headers: {
-      Authorization: 'Bearer waBe9cxZ4eEQNUYaOruI',
+      Authorization: process.env.BEARER_TOKEN as string,
     },
   });
 
   return res.status(200).send(result.data);
 });
 
-router.get('/character', (req: Request, res: Response) => {
-  return res.send('yo bro');
+router.get('/', (req: Request, res: Response) => {
+  return res.send('Health check passed');
 });
 
 export { router as characterRouter };

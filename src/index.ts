@@ -1,11 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import { json } from 'body-parser';
+import dotenv from 'dotenv';
+
 import { characterRouter } from './routes/character.route';
 import { defaultErrorHandler } from './helpers/error-handler';
 
+dotenv.config();
+
 const app = express();
-const port = 3000; // TODO: [YD] Remove this state
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(json());
