@@ -6,11 +6,17 @@ const router = express.Router();
 const API_URL = 'https://the-one-api.dev/v2/character';
 
 router.get('/character', authorizeUser, async (req: Request, res: Response) => {
-  let result = await axios.get(API_URL, {
-    headers: {
-      Authorization: process.env.BEARER_TOKEN as string,
-    },
-  });
+  let result = { data: [] };
+
+  try {
+    result = await axios.get(API_URL, {
+      headers: {
+        Authorization: process.env.BEARER_TOKEN as string,
+      },
+    });
+  } catch (e) {
+    return res.status(500).send('Internal server error');
+  }
 
   return res.status(200).send(result.data);
 });
