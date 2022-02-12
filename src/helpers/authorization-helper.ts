@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import { ROLES } from './roles';
+import {NextFunction, Request, Response} from 'express';
+import {ROLES} from './roles';
 
 let authorize = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization'];

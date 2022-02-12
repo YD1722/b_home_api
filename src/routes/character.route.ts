@@ -1,6 +1,6 @@
-import express, { Request, Response } from 'express';
+import express, {Request, Response} from 'express';
 import axios from 'axios';
-import { authorizeUser } from '../helpers/authorization-helper';
+import {authorizeUser} from '../helpers/authorization-helper';
 
 const router = express.Router();
 const API_URL = 'https://the-one-api.dev/v2/character';

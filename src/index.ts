@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import { json } from 'body-parser';
+import {json} from 'body-parser';
 import dotenv from 'dotenv';
 
-import { characterRouter } from './routes/character.route';
-import { defaultErrorHandler } from './helpers/error-handler';
+import {characterRouter} from './routes/character.route';
+import {defaultErrorHandler} from './helpers/error-handler';
 
 dotenv.config();
 
